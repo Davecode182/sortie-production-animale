@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortie Académique - Production Animale</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🐄 <span>Sortie Production Animale</span></div>
+        <ul class="nav-links">
+            <li><a href="#hero">Accueil</a></li>
+            <li><a href="#equipe">Équipe</a></li>
+            <li><a href="#catalogue">Catalogue</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Sortie Académique - Septembre 2026</h1>
+            <p>Les souvenirs inoubliables de notre promotion en <strong>Production Animale</strong></p>
+            <div class="hero-stats">
+                <div class="stat"><span id="studentCount">9</span><small>Étudiants</small></div>
+                <div class="stat"><span id="memoryCount">0</span><small>Souvenirs</small></div>
+                <div class="stat"><span id="photoCount">0</span><small>Photos</small></div>
+                <div class="stat"><span id="videoCount">0</span><small>Vidéos</small></div>
+            </div>
+            <a href="#catalogue" class="btn-primary">Explorer le catalogue</a>
+        </div>
+    </section>
+
+    <section id="equipe" class="section">
+        <div class="container">
+            <h2 class="section-title">Notre Équipe</h2>
+            <p class="section-subtitle">Clique sur un étudiant pour voir ses photos et vidéos 📸🎥</p>
+            <div class="team-grid" id="teamGrid"></div>
+        </div>
+    </section>
+
+    <section id="catalogue" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title" id="catalogTitle">Catalogue des Souvenirs</h2>
+            <p class="section-subtitle" id="catalogSubtitle">Nos plus beaux moments capturés lors de cette sortie</p>
+
+            <div id="studentBanner" class="student-banner" style="display:none;">
+                <span id="studentBannerText"></span>
+                <button id="clearStudentFilter">✕ Voir tous les souvenirs</button>
+            </div>
+
+            <div class="toolbar">
+                <div class="filters" id="filters"></div>
+                <div class="actions">
+                    <button class="btn-add" id="btnAdd">+ Ajouter un souvenir</button>
+                    <button class="btn-secondary" id="btnRefresh" title="Rafraîchir">🔄 Rafraîchir</button>
+                </div>
+            </div>
+
+            <div id="loadingMsg" class="loading-msg" style="display:none;">
+                ⏳ Chargement des souvenirs...
+            </div>
+
+            <div class="catalog-grid" id="catalogGrid"></div>
+            <p id="emptyMsg" class="empty-msg" style="display:none;">Aucun souvenir dans cette catégorie.</p>
+        </div>
+    </section>
+
+    <div class="modal" id="addModal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeModal">&times;</button>
+            <h2>Ajouter un souvenir</h2>
+            <form id="memoryForm">
+                <label>Titre *
+                    <input type="text" id="titleInput" required placeholder="Ex : Visite de la ferme">
+                </label>
+                <label>Date *
+                    <input type="date" id="dateInput" required>
+                </label>
+                <label>Étudiant concerné
+                    <select id="studentInput">
+                        <option value="">— Toute l'équipe —</option>
+                    </select>
+                </label>
+                <label>Catégorie
+                    <select id="categoryInput">
+                        <option>Visites</option>
+                        <option>Animaux</option>
+                        <option>Paysages</option>
+                        <option>Équipe</option>
+                        <option>Moments</option>
+                    </select>
+                </label>
+                <label>Description
+                    <textarea id="descInput" rows="3" placeholder="Raconte ce moment..."></textarea>
+                </label>
+                <label>Image ou vidéo (fichier)
+                    <input type="file" id="mediaFile" accept="image/*,video/*">
+                </label>
+                <label>ou URL (image, vidéo .mp4, YouTube)
+                    <input type="url" id="mediaUrl" placeholder="https://... ou lien YouTube">
+                </label>
+                <div id="previewBox" class="preview-box" style="display:none;">
+                    <div id="previewContent"></div>
+                </div>
+                <div id="uploadStatus" class="upload-status" style="display:none;"></div>
+                <button type="submit" class="btn-primary" id="submitBtn">Enregistrer le souvenir</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <button class="close-btn" id="closeLightbox">&times;</button>
+        <div class="lightbox-content" id="lightboxContent"></div>
+        <p id="lightboxCaption"></p>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 - Promotion Production Animale · Site souvenir de notre sortie académique 🐄</p>
+    </footer>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Configuration (clés) -->
+    <script src="config.js"></script>
+    <!-- Application -->
+    <script src="app.js"></script>
+</body>
+
+</html>

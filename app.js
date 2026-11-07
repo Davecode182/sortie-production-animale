@@ -16,7 +16,7 @@ const STUDENTS = [
 ];
 
 const BUCKET = 'Souvenirs'; // Si tu as nommé ton bucket 'souvenirs', change-le ici !
-const TABLE = 'memoies';
+const TABLE = 'memories';
 
 let supabaseClient = null; // <-- VARIABLE RENOMMÉE ICI
 let memories = [];

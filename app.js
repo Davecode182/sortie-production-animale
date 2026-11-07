@@ -4,13 +4,13 @@
    ========================================== */
 
 const STUDENTS = [
-    { id: 'E1', name: 'Étudiant 1' },
-    { id: 'E2', name: 'Étudiant 2' },
-    { id: 'E3', name: 'Étudiant 3' },
-    { id: 'E4', name: 'Étudiant 4' },
-    { id: 'E5', name: 'Étudiant 5' },
-    { id: 'E6', name: 'Étudiant 6' },
-    { id: 'E7', name: 'Étudiant 7' },
+    { id: 'E1', name: 'ALCENA Josué' },
+    { id: 'E2', name: 'CELINÉ Georges' },
+    { id: 'E3', name: 'CHARLES Lookendy Dukens' },
+    { id: 'E4', name: 'DAVILMA Budelin' },
+    { id: 'E5', name: 'EXCEUS Malorie' },
+    { id: 'E6', name: 'FLEURANT Josué' },
+    { id: 'E7', name: 'LEMEUBLE Angelo' },
     { id: 'E8', name: 'PAUL Mackenley' },
     { id: 'E9', name: 'PIERRE David' }
 ];
